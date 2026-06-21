@@ -56,89 +56,102 @@ font-weight:bold;
 }
 
 /* =======================================================
-   ESTRUTURA DOS CARROSSÉIS AUTOMÁTICOS (INFINITOS)
+   NOVO: CARROSSEL DE BANNER OFICIAL ESTILO SHOPEE (TOPO)
    ======================================================= */
-.secao-banners-auto {
+.container-shopee-banner {
 max-width: 1200px;
 margin: 20px auto 0 auto;
 padding: 0 15px;
-overflow: hidden;
 }
 
-.titulo-banners {
-color: #333;
-font-size: 15px;
-margin: 20px 0 8px 0;
-font-weight: bold;
-border-left: 4px solid #ff5722;
-padding-left: 8px;
-}
-
-/* Janela que esconde o que passa do limite da tela */
-.carrossel-janela {
-overflow: hidden;
+.shopee-banner {
+position: relative;
 width: 100%;
-background: transparent;
-padding: 5px 0;
-}
-
-/* Trilho que segura os banners e roda a animação */
-.carrossel-trilho {
-display: flex;
-gap: 15px;
-width: max-content;
-}
-
-/* Estilo de cada banner */
-.banner-link {
-display: block;
-width: 280px;
-height: 120px;
-border-radius: 10px;
+height: 320px; /* Altura ideal para PC */
+border-radius: 8px;
 overflow: hidden;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-transition: transform 0.2s;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.banner-link:hover {
-transform: scale(1.03);
+.shopee-banner-trilho {
+display: flex;
+width: 400%; /* 4 Banners = 400% */
+height: 100%;
+transition: transform 0.5s ease-in-out;
 }
 
-.banner-link img {
+.shopee-banner-slide {
+width: 25%; /* Cada um ocupa exatamente 1 espaço */
+height: 100%;
+display: block;
+}
+
+.shopee-banner-slide img {
 width: 100%;
 height: 100%;
-object-fit: cover;
+object-fit: cover; /* Garante o preenchimento sem distorcer */
 }
 
-/* --- ANIMAÇÕES CSS (Efeito Infinito) --- */
-/* Se passar o mouse por cima do carrossel, ele pausa para o usuário clicar */
-.carrossel-janela:hover .carrossel-trilho {
-animation-play-state: paused;
+/* Setas Laterais */
+.shopee-seta {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(0, 0, 0, 0.3);
+color: white;
+border: none;
+width: 40px;
+height: 50px;
+cursor: pointer;
+font-size: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 0.2s;
+z-index: 10;
 }
 
-/* Carrossel 1 e 3 rolam para a Esquerda */
-.anima-esquerda {
-animation: rolarEsquerda 20s linear infinite;
+.shopee-seta:hover {
+background: rgba(0, 0, 0, 0.6);
 }
 
-@keyframes rolarEsquerda {
-0% { transform: translateX(0); }
-100% { transform: translateX(calc(-50% - 7.5px)); } /* Ajuste perfeito considerando o gap */
+.shopee-seta-esq { left: 0; border-radius: 0 5px 5px 0; }
+.shopee-seta-dir { right: 0; border-radius: 5px 0 0 5px; }
+
+/* Indicadores (Bolinhas) */
+.shopee-indicadores {
+position: absolute;
+bottom: 15px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 8px;
+z-index: 10;
 }
 
-/* Carrossel 2 e 4 rolam para a Direita (Gera um efeito visual bem legal alternado) */
-.anima-direita {
-animation: rolarDireita 20s linear infinite;
+.shopee-ponto {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+cursor: pointer;
+transition: 0.3s;
 }
 
-@keyframes rolarDireita {
-0% { transform: translateX(calc(-50% - 7.5px)); }
-100% { transform: translateX(0); }
+.shopee-ponto.ativo {
+background: #ff5722; /* Laranja oficial ao ficar ativo */
+width: 22px; /* Efeito esticado da Shopee */
+border-radius: 5px;
 }
 
+/* Adaptação para Celulares */
+@media (max-width: 768px) {
+    .shopee-banner { height: 160px; } /* Altura proporcional menor para telas mobile */
+    .shopee-seta { display: none; } /* Esconde as setas no mobile para focar no toque */
+}
 
 /* =======================================================
-   PRODUTOS (SUA GRADE ORIGINAL)
+   PRODUTOS (SUA GRADE ORIGINAL COPIADA ABAIXO)
    ======================================================= */
 .produtos{
 max-width:1200px;
@@ -226,57 +239,34 @@ margin-top:40px;
 </header>
 
 
-<section class="secao-banners-auto">
+<div class="container-shopee-banner">
+    <div class="shopee-banner">
+        <button class="shopee-seta shopee-seta-esq" onclick="mudarSlide(-1)">&#10094;</button>
+        <button class="shopee-seta shopee-seta-dir" onclick="mudarSlide(1)">&#10095;</button>
 
-    <div class="titulo-banners">🎟️ 1. Cupons e Descontos Especiais</div>
-    <div class="carrossel-janela">
-        <div class="carrossel-trilho anima-esquerda">
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1572584642822-6f8de0243c93?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1572584642822-6f8de0243c93?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=400&q=80"></a>
+        <div class="shopee-banner-trilho" id="trilho">
+            <a href="SEU_LINK_AQUI_1" class="shopee-banner-slide">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80" alt="Banner 1 Frete Grátis">
+            </a>
+            <a href="SEU_LINK_AQUI_2" class="shopee-banner-slide">
+                <img src="https://images.unsplash.com/photo-1572584642822-6f8de0243c93?auto=format&fit=crop&w=1200&q=80" alt="Banner 2 Cupons de Desconto">
+            </a>
+            <a href="SEU_LINK_AQUI_3" class="shopee-banner-slide">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=1200&q=80" alt="Banner 3 Saldão Eletrônicos">
+            </a>
+            <a href="SEU_LINK_AQUI_4" class="shopee-banner-slide">
+                <img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?auto=format&fit=crop&w=1200&q=80" alt="Banner 4 Grandes Marcas">
+            </a>
+        </div>
+
+        <div class="shopee-indicadores">
+            <div class="shopee-ponto ativo" onclick="irParaSlide(0)"></div>
+            <div class="shopee-ponto" onclick="irParaSlide(1)"></div>
+            <div class="shopee-ponto" onclick="irParaSlide(2)"></div>
+            <div class="shopee-ponto" onclick="irParaSlide(3)"></div>
         </div>
     </div>
-
-    <div class="titulo-banners">⚡ 2. Tecnologia e Smartphones</div>
-    <div class="carrossel-janela">
-        <div class="carrossel-trilho anima-direita">
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80"></a>
-        </div>
-    </div>
-
-    <div class="titulo-banners">👗 3. Achadinhos de Moda & Look</div>
-    <div class="carrossel-janela">
-        <div class="carrossel-trilho anima-esquerda">
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80"></a>
-        </div>
-    </div>
-
-    <div class="titulo-banners">🏠 4. Casa, Cozinha e Organização</div>
-    <div class="carrossel-janela">
-        <div class="carrossel-trilho anima-direita">
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80"></a>
-            <a href="SEU_LINK_AQUI" class="banner-link"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80"></a>
-        </div>
-    </div>
-
-</section>
+</div>
 
 
 <section class="produtos">
@@ -334,6 +324,53 @@ margin-top:40px;
 <footer>
 © 2026 • Produtos Selecionados
 </footer>
+
+<script>
+let slideAtual = 0;
+const totalSlides = 4;
+const trilho = document.getElementById('trilho');
+const pontos = document.querySelectorAll('.shopee-ponto');
+
+// Passa o slide automaticamente a cada 4 segundos
+let intervaloAuto = setInterval(() => mudarSlide(1), 4000);
+
+function atualizarCarrossel() {
+    // Move o trilho proporcionalmente
+    trilho.style.transform = `translateX(-${slideAtual * 25}%)`;
+    
+    // Atualiza o estado visual das bolinhas indicadoras
+    pontos.forEach((ponto, index) => {
+        if (index === slideAtual) {
+            ponto.classList.add('ativo');
+        } else {
+            ponto.classList.remove('ativo');
+        }
+    });
+}
+
+function mudarSlide(direcao) {
+    slideAtual += direcao;
+    
+    // Faz o loop retornar caso passe do limite
+    if (slideAtual >= totalSlides) slideAtual = 0;
+    if (slideAtual < 0) slideAtual = totalSlides - 1;
+    
+    atualizarCarrossel();
+    resetarTempo();
+}
+
+function irParaSlide(index) {
+    slideAtual = index;
+    atualizarCarrossel();
+    resetarTempo();
+}
+
+// Reseta o cronômetro quando o usuário clica manualmente para não pular rápido demais
+function resetarTempo() {
+    clearInterval(intervaloAuto);
+    intervaloAuto = setInterval(() => mudarSlide(1), 4000);
+}
+</script>
 
 </body>
 </html>
