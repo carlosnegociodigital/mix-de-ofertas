@@ -3,340 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ofertas Shopee</title>
-  <meta property="og:title" content="🚀 Melhor Preço Encontrado">
-<meta property="og:description" content="🔥 Encontre produtos úteis, criativos e com excelente custo-benefício. Clique e descubra">
+
+<title>🔥 Ofertas Shopee</title>
+
+<meta property="og:title" content="🔥 Produtos Selecionados">
+<meta property="og:description" content="Promoções, descontos e ofertas imperdíveis da Shopee.">
 <meta property="og:image" content="https://carlosnegociodigital.github.io/myshop/imagem1.webp">
 <meta property="og:url" content="https://carlosnegociodigital.github.io/myshop/">
+
 <style>
-  body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;}
 
-  /* ===== Cabeçalho ===== */
-  header{
-    background:#ff5722; 
-    color:#fff; 
-    text-align:center; 
-    padding:20px;
-  }
-  header img{height:60px;}
-  header h1{margin:10px 0 5px;}
-  header p{margin:0;font-size:18px;}
-  header a{
-    display:inline-block; 
-    margin-top:15px; 
-    background:#fff; 
-    color:#ff5722;
-    padding:10px 20px; 
-    border-radius:25px; 
-    font-weight:bold; 
-    text-decoration:none;
-  }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  /* ===== Carrossel ===== */
-  .carousel{
-    position:relative;
-    max-width:1000px;
-    margin:20px auto;
-    overflow:hidden;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
-  }
-  .carousel-track{
-    display:flex;
-    transition:transform 0.5s ease;
-  }
-  .slide{
-    min-width:100%;
-    position:relative;
-  }
-  .slide img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  .slide a{
-    position:absolute;
-    inset:0;
-    display:block;
-    text-indent:-9999px;
-    z-index:1;            /* Link atrás dos botões */
-    pointer-events:auto;  /* Mantém o link clicável */
-  }
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+}
 
-  /* ===== Botões ===== */
-  .carousel button{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.5);
-    border:none;
-    color:#fff;
-    font-size:30px;
-    padding:10px;
-    cursor:pointer;
-    border-radius:50%;
-    z-index:2;            /* Botão na frente do link */
-    pointer-events:auto;  /* Captura clique corretamente */
-  }
-  .carousel button:hover{background:rgba(0,0,0,0.7);}
-  .prev{left:10px;}
-  .next{right:10px;}
+/* Cabeçalho */
+header{
+background:#ff5722;
+color:white;
+text-align:center;
+padding:25px;
+}
 
-/* ===== Grade de Produtos ===== */
+header img{
+height:60px;
+}
+
+header h1{
+margin:10px 0;
+}
+
+header p{
+font-size:18px;
+}
+
+header a{
+display:inline-block;
+margin-top:15px;
+background:white;
+color:#ff5722;
+padding:12px 20px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* Produtos */
 .produtos{
-  max-width:1200px;
-  margin:40px auto;
-  padding:0 15px;
+max-width:1200px;
+margin:auto;
+padding:30px 15px;
 }
 
 .produtos h2{
-  color:#ff5722;
-  margin-bottom:25px;
-  text-align:center;
+text-align:center;
+color:#ff5722;
+margin-bottom:25px;
 }
 
-.grade-produtos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+.grade{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.produto{
-  background:#fff;
-  border-radius:12px;
-  padding:15px;
-  box-shadow:0 2px 8px rgba(0,0,0,.1);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  transition:.3s;
+.card{
+background:white;
+border-radius:15px;
+padding:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+display:flex;
+flex-direction:column;
+text-align:center;
+transition:.3s;
 }
 
-.produto:hover{
-  transform:translateY(-5px);
+.card:hover{
+transform:translateY(-5px);
 }
 
-.produto img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  border-radius:8px;
+.card img{
+width:100%;
+height:220px;
+object-fit:contain;
 }
 
-.produto h3{
-  font-size:15px;
-  min-height:55px; /* mantém todos alinhados */
-  margin:12px 0;
+.card h3{
+font-size:15px;
+margin:15px 0;
+min-height:50px;
 }
 
-.produto .preco{
-  color:#2e7d32;
-  font-size:20px;
-  font-weight:bold;
-  margin-bottom:15px;
+.preco{
+font-size:24px;
+color:#2e7d32;
+font-weight:bold;
+margin-bottom:15px;
 }
 
-.produto a{
-  margin-top:auto;
-  display:inline-block;
-  background:#ff5722;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:bold;
+.botao{
+background:#ff5722;
+color:white;
+padding:12px;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+margin-top:auto;
 }
 
-.produto a:hover{
-  background:#e64a19;
+.botao:hover{
+background:#e64a19;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 
 </style>
 </head>
 <body>
 
-  <!-- ===== Cabeçalho ===== -->
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopee_logo.svg" alt="Shopee Logo">
-    <h1>🔥 Ofertas Exclusivas Shopee</h1>
-    <p>Promoções relâmpago, cupons e descontos imperdíveis</p>
-    <a href="https://s.shopee.com.br/9KZBQMY1Bz">Festival de lojas oficiais</a>
-  </header>
-  <!-- ===== Carrossel ===== -->
-  <div id="carrossel" class="carousel">
-    <div class="carousel-track">
+<header>
 
-      <!-- Slide 1 -->
-      <div class="slide">
-        <img src="https://down-br.img.susercontent.com/file/br-11134258-820lw-mpb2zvjeodfk75@resize_w797_nl.webp" alt="Promoção Relâmpago">
-        <a href="https://s.shopee.com.br/5Aq4caq2li" target="_blank">Promoção Relâmpago</a>
-      </div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopee_logo.svg">
 
-      <!-- Slide 2 -->
-      <div class="slide">
-        <img src="https://down-br.img.susercontent.com/file/br-11134258-820lv-mopx4zualipxdc@resize_w797_nl.webp" alt="Mais Vendidos">
-        <a href="https://s.shopee.com.br/110VfKVxTg" target="_blank">Mais Vendidos</a>
-      </div>
+<h1>🔥 Ofertas Exclusivas Shopee</h1>
 
-      <!-- Slide 3 -->
-      <div class="slide">
-        <img src="https://down-br.img.susercontent.com/file/br-11134258-820lc-mpaxxgkx7ax1f1@resize_w797_nl.webp" alt="Ofertas do Dia">
-        <a href="https://s.shopee.com.br/6fesQDBs28" target="_blank">Ofertas do Dia</a>
-      </div>
+<p>Promoções e descontos imperdíveis</p>
 
-      <!-- Slide 4 -->
-      <div class="slide">
-        <img src="https://down-br.img.susercontent.com/file/br-11134258-820lo-mpaxxgkwkttsf0@resize_w797_nl.webp" alt="Cupom Frete Grátis">
-        <a href="https://s.shopee.com.br/4LGxeIFrWB" target="_blank">Cupom Frete Grátis</a>
-      </div>
+<a href="https://s.shopee.com.br/9KZBQMY1Bz">
+Festival de Lojas Oficiais
+</a>
 
-      <!-- Slide 5 -->
-      <div class="slide">
-        <img src="https://down-br.img.susercontent.com/file/br-11134258-820la-mpawi33qtkp23a@resize_w797_nl.webp" alt="Supermercado Shopee">
-        <a href="https://s.shopee.com.br/5fmLF6ZveB" target="_blank">Supermercado Shopee</a>
-      </div>
-
-    </div>
+</header>
 
 
-    <!-- Botões -->
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
-<!-- ===== Seção de Produtos ===== -->
 <section class="produtos">
-  <h2>🛍️ Produtos em Destaque</h2>
 
-  <div class="grade-produtos">
+<h2>🛍 Produtos em Destaque</h2>
 
-    <!-- Produto 1 -->
-    <div class="produto">
-      <img src="https://down-zl-br.img.susercontent.com/br-11134207-7r98o-maoel0dj6b5l5c.webp" alt="Produto 1">
-      <h3>Kit 2x Fone de Ouvido Sem Fio Bluetooth TWS 5.0 Gamer</h3>
-      <p class="preco">R$59,30</p>
-      <a href="https://s.shopee.com.br/Ll1lYUwfZ" target="_blank">Comprar agora</a>
-    </div>
+<div class="grade">
 
-    <!-- Produto 2 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/br-11134207-820m9-mokmndykmltx26.webp" alt="Produto 2">
-      <h3>Fones Bluetooth</h3>
-      <p class="preco">R$00,00</p>
-      <a href="https://s.shopee.com.br/2LVzfoMSVk" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-zl-br.img.susercontent.com/br-11134207-7r98o-maoel0dj6b5l5c.webp">
+<h3>Kit 2x Fones Bluetooth Gamer TWS</h3>
+<div class="preco">R$59,30</div>
+<a class="botao" href="https://s.shopee.com.br/Ll1lYUwfZ">Comprar Agora</a>
+</div>
 
-    <!-- Produto 3 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/br-11134207-820lu-mmb8uvgqp91ic2.webp" alt="Produto 3">
-      <h3>Smartwatches</h3>
-      <p class="preco">R$120,00</p>
-      <a href="https://s.shopee.com.br/4AxdripAGy" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-bs-br.img.susercontent.com/br-11134207-820lu-mmb8uvgqp91ic2.webp">
+<h3>Smartwatch Bluetooth</h3>
+<div class="preco">R$120,00</div>
+<a class="botao" href="https://s.shopee.com.br/4AxdripAGy">Comprar Agora</a>
+</div>
 
-    <!-- Produto 4 -->
-    <div class="produto">
-      <img src="https://down-zl-br.img.susercontent.com/br-11134207-820m9-mm9qmldg6rcw4b.webp" alt="Produto 4">
-      <h3>Caixa de Som Bluetooth Potente com Pendrive, FM e SD</h3>
-      <p class="preco">R$59,00</p>
-      <a href="https://s.shopee.com.br/Ll1m7LLQ7" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-zl-br.img.susercontent.com/br-11134207-820m9-mm9qmldg6rcw4b.webp">
+<h3>Caixa de Som Bluetooth Potente</h3>
+<div class="preco">R$59,00</div>
+<a class="botao" href="https://s.shopee.com.br/Ll1m7LLQ7">Comprar Agora</a>
+</div>
 
-    <!-- Produto 5 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/sg-11134201-825ak-mgbu0e0y83ykad.webp" alt="Produto 5">
-      <h3>Tomada Elétrica Vertical Torre 12 Saídas + 2 USB</h3>
-      <p class="preco">R$41,90</p>
-      <a href="https://s.shopee.com.br/5fmY6lOcpc" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-bs-br.img.susercontent.com/sg-11134201-825ak-mgbu0e0y83ykad.webp">
+<h3>Tomada Torre 12 Saídas + USB</h3>
+<div class="preco">R$41,90</div>
+<a class="botao" href="https://s.shopee.com.br/5fmY6lOcpc">Comprar Agora</a>
+</div>
 
-    <!-- Produto 6 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/sg-11134201-825zz-mlc440901s057d.webp" alt="Produto 6">
-      <h3>Massageador Elétrico Portátil para Pescoço com Aquecimento</h3>
-      <p class="preco">R$119,99</p>
-      <a href="https://s.shopee.com.br/2qSMjHkg7l" target="_blank">Comprar agora</a>
-    </ <!-- Produto 1 -->
-    <div class="produto">
-      <img src="https://down-zl-br.img.susercontent.com/br-11134207-7r98o-maoel0dj6b5l5c.webp" alt="Produto 1">
-      <h3>Kit 2x Fone de Ouvido Sem Fio Bluetooth TWS 5.0 Gamer</h3>
-      <p class="preco">R$59,30</p>
-      <a href="https://s.shopee.com.br/Ll1lYUwfZ" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-bs-br.img.susercontent.com/sg-11134201-825zz-mlc440901s057d.webp">
+<h3>Massageador Elétrico com Aquecimento</h3>
+<div class="preco">R$119,99</div>
+<a class="botao" href="https://s.shopee.com.br/2qSMjHkg7l">Comprar Agora</a>
+</div>
 
-    <!-- Produto 2 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/br-11134207-820m9-mokmndykmltx26.webp" alt="Produto 2">
-      <h3>Fones Bluetooth</h3>
-      <p class="preco">R$00,00</p>
-      <a href="https://s.shopee.com.br/2LVzfoMSVk" target="_blank">Comprar agora</a>
-    </div>
+<div class="card">
+<img src="https://down-bs-br.img.susercontent.com/br-11134207-820m9-mokmndykmltx26.webp">
+<h3>Fone Bluetooth Sem Fio</h3>
+<div class="preco">R$39,90</div>
+<a class="botao" href="https://s.shopee.com.br/2LVzfoMSVk">Comprar Agora</a>
+</div>
 
-    <!-- Produto 3 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/br-11134207-820lu-mmb8uvgqp91ic2.webp" alt="Produto 3">
-      <h3>Smartwatches</h3>
-      <p class="preco">R$120,00</p>
-      <a href="https://s.shopee.com.br/4AxdripAGy" target="_blank">Comprar agora</a>
-    </div>
+</div>
 
-    <!-- Produto 4 -->
-    <div class="produto">
-      <img src="https://down-zl-br.img.susercontent.com/br-11134207-820m9-mm9qmldg6rcw4b.webp" alt="Produto 4">
-      <h3>Caixa de Som Bluetooth Potente com Pendrive, FM e SD</h3>
-      <p class="preco">R$59,00</p>
-      <a href="https://s.shopee.com.br/Ll1m7LLQ7" target="_blank">Comprar agora</a>
-    </div>
-
-    <!-- Produto 5 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/sg-11134201-825ak-mgbu0e0y83ykad.webp" alt="Produto 5">
-      <h3>Tomada Elétrica Vertical Torre 12 Saídas + 2 USB</h3>
-      <p class="preco">R$41,90</p>
-      <a href="https://s.shopee.com.br/5fmY6lOcpc" target="_blank">Comprar agora</a>
-    </div>
-
-    <!-- Produto 6 -->
-    <div class="produto">
-      <img src="https://down-bs-br.img.susercontent.com/sg-11134201-825zz-mlc440901s057d.webp" alt="Produto 6">
-      <h3>Massageador Elétrico Portátil para Pescoço com Aquecimento</h3>
-      <p class="preco">R$119,99</p>
-      <a href="https://s.shopee.com.br/2qSMjHkg7l" target="_blank">Comprar agora</a>
-    </div>
-
-  </div>
-   
 </section>
 
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
-  let index = 0;
-
-  function updateSlide(){
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  nextBtn.addEventListener('click',(e)=>{
-    e.stopPropagation(); // Impede que o clique "vaze" para o link do banner
-    index = (index + 1) % slides.length;
-    updateSlide();
-  });
-
-  prevBtn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-    index = (index - 1 + slides.length) % slides.length;
-    updateSlide();
-  });
-
-  // autoplay a cada 5 segundos
-  setInterval(()=>{
-    index = (index + 1) % slides.length;
-    updateSlide();
-  },5000);
-</script>
+<footer>
+© 2026 • Produtos Selecionados
+</footer>
 
 </body>
 </html>
